@@ -1,0 +1,17 @@
+.header {
+    background-color: var(--primary-color01);
+    box-shadow: 0px 5px 7px -7px rgba(0, 0, 0, 0.75);
+    border-bottom-right-radius: 2rem;
+    padding: 0.5rem 0px;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: white!important;
+    
+}
+
+.navbar-collapse {
+    justify-content: flex-end;
+}
