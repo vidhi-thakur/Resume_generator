@@ -1,0 +1,15 @@
+.welcomePage {
+    display: grid;
+    place-items: center;
+    min-height: 90vh;
+}
+
+.welcome__img {
+    height: 300px;
+    max-width: 100%;
+    margin-bottom: 3rem;
+}
+
+.welcome__innerContainer {
+    max-width: 100%;
+}
