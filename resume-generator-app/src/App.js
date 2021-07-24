@@ -1,12 +1,14 @@
 import './App.css';
-import WelcomePage from './pages/WelcomePage';
+// import WelcomePage from './pages/WelcomePage';
 import Header from './components/Header';
+import HomePage from './pages/HomePage';
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <WelcomePage />
+      <HomePage />
+      {/* <WelcomePage /> */}
     </div>
   );
 }
