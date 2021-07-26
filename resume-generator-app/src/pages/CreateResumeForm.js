@@ -33,26 +33,32 @@ function CreateResumeForm() {
     const [formState, setFormState] = useState(initialState)
 
     const nextStep = () => {
-        console.log("step before >>>>",formState.step)
-        setFormState({step: formState.step + 1})
-        console.log("step after >>>>",formState.step)
+        setFormState({...formState, step: formState.step+1})
+        console.log("formState >>>>",formState)
     }
 
     const prevStep = () => {
-        setFormState(formState.step - 1)
+        setFormState({...formState, step: formState.step+1})
     }
 
     const handleChange = input => e => {
-        setFormState({[input]: e.target.value})
+        console.log("e.target.value >>>>",e.target.value)
+        formState[input]= e.target.value
+        console.log("formState[input] >>>", formState[input])
+        setFormState({...formState, [input]: formState[input]})
+        // setFormState({...formState, [input]: e.target.value})
+        console.log("formState >>>>",formState)
     }
 
     switch (formState.step) {
         case 1:
-            return (<PersonalDetails name={formState.userName} email={formState.userEmail} phoneNo={formState.userPhoneNo} nextStep={nextStep} handleChange={handleChange} />)
+            return (<PersonalDetails userName={formState.userName} userEmail={formState.userEmail} userPhoneNo={formState.userPhoneNo} nextStep={nextStep} handleChange={handleChange} />)
         case 2:
-            return (<ProfessionalDetails jobTitle={formState.jobTitle} companyName={formState.companyName} jobDuration={formState.jobDuration} jobDescription={formState.jobDescription} nextStep={nextStep} prevStep={prevStep} />)
+            return (<ProfessionalDetails jobTitle={formState.jobTitle} companyName={formState.companyName} jobDuration={formState.jobDuration} jobDescription={formState.jobDescription} nextStep={nextStep} prevStep={prevStep} handleChange={handleChange} />)
         default:
-            return <h1>Default page</h1>
+            return (<>{console.log(formState.step)}
+            <h1>something</h1>
+            </>)
 
     }
 }
