@@ -33,7 +33,7 @@ function CreateResumeForm() {
 
     switch (formState.step) {
         case 1:
-            return <PersonalDetails />
+            return <PersonalDetails  />
         default:
             return;
 
