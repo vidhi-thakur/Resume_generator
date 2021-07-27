@@ -2,6 +2,7 @@ import { useState } from 'react'
 import "./CreateResumeForm.css"
 import PersonalDetails from "../components/formComponents/PersonalDetails"
 import ProfessionalDetails from '../components/formComponents/ProfessionalDetails'
+import Projects from '../components/formComponents/Projects'
 
 function CreateResumeForm() {
 
@@ -15,11 +16,12 @@ function CreateResumeForm() {
         skills: [],
         jobTitle: [],
         companyName: [],
-        jobDuration: [],
+        startDate: [],
+        endDate: [],
         jobDescription: [],
         projectTitle: [],
         projectLink: [],
-        projectDuration: [],
+        projectDate: [],
         projectDescription: [],
         academicMilestone: [],
         passoutYear: [],
@@ -33,31 +35,35 @@ function CreateResumeForm() {
     const [formState, setFormState] = useState(initialState)
 
     const nextStep = () => {
-        setFormState({...formState, step: formState.step+1})
-        console.log("formState >>>>",formState)
+        console.log("Inside next step method")
+        // formState.step = formState.step+1
+        setFormState({ ...formState, step: formState.step + 1 })
+        console.log("formState >>>>", formState)
     }
 
     const prevStep = () => {
-        setFormState({...formState, step: formState.step+1})
+        console.log("Inside prev step method")
+        console.log("formState.step-1 >>>>>", formState.step - 1)
+        setFormState({ ...formState, step: formState.step - 1 })
+        console.log("formState.step >>>>", formState.step)
+        console.log("formState >>>>", formState)
     }
 
     const handleChange = input => e => {
-        console.log("e.target.value >>>>",e.target.value)
-        formState[input]= e.target.value
-        console.log("formState[input] >>>", formState[input])
-        setFormState({...formState, [input]: formState[input]})
-        // setFormState({...formState, [input]: e.target.value})
-        console.log("formState >>>>",formState)
+        formState[input] = e.target.value
+        setFormState({ ...formState, [input]: formState[input] })
     }
 
     switch (formState.step) {
         case 1:
             return (<PersonalDetails userName={formState.userName} userEmail={formState.userEmail} userPhoneNo={formState.userPhoneNo} nextStep={nextStep} handleChange={handleChange} />)
         case 2:
-            return (<ProfessionalDetails jobTitle={formState.jobTitle} companyName={formState.companyName} jobDuration={formState.jobDuration} jobDescription={formState.jobDescription} nextStep={nextStep} prevStep={prevStep} handleChange={handleChange} />)
+            return (<ProfessionalDetails jobTitle={formState.jobTitle} companyName={formState.companyName} jobDuration={formState.jobDuration} jobDescription={formState.jobDescription} nextStep={nextStep} prevStep={prevStep} handleChange={handleChange} startDate={formState.startDate} endDate={formState.endDate} />)
+        case 3:
+            return (<Projects projectTitle={formState.projectTitle} projectLink={formState.projectLink} projectDate={formState.projectDate} projectDescription={formState.jobDescription} nextStep={nextStep} prevStep={prevStep} handleChange={handleChange} />)
         default:
             return (<>{console.log(formState.step)}
-            <h1>something</h1>
+                <h1>something</h1>
             </>)
 
     }
