@@ -1,5 +1,4 @@
 import React from 'react'
-import "./PersonalDetails.css"
 
 function PersonalDetails({ userName, userEmail, userPhoneNo, nextStep, handleChange }) {
 

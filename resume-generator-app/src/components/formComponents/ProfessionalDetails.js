@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import "./ProfessionalDetails.css"
 
 function ProfessionalDetails({ jobTitle, jobDescription, startDate, endDate, companyName, nextStep, prevStep, handleChange }) {
 
@@ -27,15 +26,15 @@ function ProfessionalDetails({ jobTitle, jobDescription, startDate, endDate, com
                 <form className="flex p-4 shadow-md my-12 flex-col justify-center w-10/12 mx-auto md:w-2/5 w-5/6 bg-white">
                     <h2 className="mb-8">Professional Details</h2>
                     <label>Job Title</label>
-                    <input onChange={(e) => { handleChange("jobTitle")(e) }} value={jobTitle} className="border border-indigo-600 bg-white px-4 py-2 mt-2.5 mb-4" type="text" placeholder="Eg: Jhonny Doe" required />
+                    <input onChange={(e) => { handleChange("jobTitle")(e) }} value={jobTitle} className="border border-indigo-600 bg-white px-4 py-2 mt-2.5 mb-4" type="text" placeholder="Eg: Frontend Engineer" required />
                     <label>Company Name</label>
-                    <input onChange={(e) => { handleChange("companyName")(e) }} value={companyName} className="border border-indigo-600 bg-white px-4 py-2 mt-2.5 mb-4" type="email" placeholder="Eg: Jhonnydoe@gmail.com" required />
+                    <input onChange={(e) => { handleChange("companyName")(e) }} value={companyName} className="border border-indigo-600 bg-white px-4 py-2 mt-2.5 mb-4" type="email" placeholder="Eg: XYZ Company" required />
                     <div className="flex justify-between flex-col sm:flex-row">
-                        <div className="flex flex-col">
+                        <div className="flex flex-col flex-1 sm:mr-4">
                             <label>Start date</label>
                             <input className="border border-indigo-600 bg-white px-4 py-2 mt-2.5 mb-4" type="date" onChange={(e) => { handleChange("startDate")(e) }} value={startDate} />
                         </div>
-                        <div className="flex flex-col">
+                        <div className="flex-1 flex flex-col">
                             <label>End date</label>
                             {toggle ? <input type="date" className="border border-indigo-600 bg-white px-4 py-2 mt-2.5 mb-4 text-gray-500" disabled /> : <input className="border border-indigo-600 bg-white px-4 py-2 mt-2.5 mb-4" type="date" onChange={(e) => { handleChange("endDate")(e) }} value={endDate} />}
                         </div>
